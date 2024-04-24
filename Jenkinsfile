@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jenkins-blueocean' }
+    agent { label 'mestre' }
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
