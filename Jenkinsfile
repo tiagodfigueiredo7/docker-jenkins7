@@ -5,8 +5,14 @@ pipeline {
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('docker-build-push')
+        DOCKER_TLS_VERIFY = '0'
     }
     stages {
+        stage('Unset DOCKER_TLS_VERIFY') {
+            steps {
+                sh 'unset DOCKER_TLS_VERIFY'
+            }
+        }
         stage('Build') {
             steps {
                 script {
